@@ -33,7 +33,7 @@ env:
 #  - FLB_OPT="-DSANITIZE_THREAD=On"
 
 before_script:
-arch: arm64
+#arch: arm64
     #- amd64
     #- arm64
 
