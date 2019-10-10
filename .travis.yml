@@ -33,7 +33,7 @@ env:
 #  - FLB_OPT="-DSANITIZE_THREAD=On"
 
 before_script:
-#arch: arm64
+arch: arm64
     #- amd64
     #- arm64
 
@@ -78,12 +78,12 @@ script: |
   sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-7 90
   sudo usermod -a -G systemd-journal $(id -un)
   sudo -E su -p travis -c "PATH=$PATH ci/do-ut"
-# addons:
-#   apt:
-#     sources:
-#       - ubuntu-toolchain-r-test
-#     packages:
-#       - gcc-7
-#       - g++-7
-#       - libsystemd-dev
-#       - gcovr
+addons:
+  apt:
+    sources:
+      - ubuntu-toolchain-r-test
+    packages:
+      - gcc-7
+      - g++-7
+      - libsystemd-dev
+      - gcovr
