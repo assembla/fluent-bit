@@ -77,6 +77,7 @@ script: |
   sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-7 90
   sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-7 90
   sudo usermod -a -G systemd-journal $(id -un)
+  sudo update-alternatives --install /usr/bin/llvm-symbolizer llvm-symbolizer /usr/lib/llvm-6.0/bin/llvm-symbolizer 1
   sudo -E su -p travis -c "PATH=$PATH ci/do-ut"
 addons:
   apt:
