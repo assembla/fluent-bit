@@ -76,17 +76,14 @@ script: |
   echo "CC = $CC, CXX = $CXX"
   sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-7 90
   sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-7 90
-  #sudo usermod -a -G systemd-journal $(id -un)
-  #sudo -E su -p travis -c "PATH=$PATH ci/do-ut"
-  update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-7 90
-  update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-7 90
-  ./ci/do-ut
-addons:
-  apt:
-    sources:
-      - ubuntu-toolchain-r-test
-    packages:
-      - gcc-7
-      - g++-7
-      - libsystemd-dev
-      - gcovr
+  sudo usermod -a -G systemd-journal $(id -un)
+  sudo -E su -p travis -c "PATH=$PATH ci/do-ut"
+# addons:
+#   apt:
+#     sources:
+#       - ubuntu-toolchain-r-test
+#     packages:
+#       - gcc-7
+#       - g++-7
+#       - libsystemd-dev
+#       - gcovr
